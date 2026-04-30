@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [Header("Room Settings")]
-    [SerializeField] private int roomNumber = 1;
-
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 50;
 
@@ -13,12 +10,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Color hitColor = Color.red;
     [SerializeField] private float hitFlashTime = 0.15f;
 
-    public int RoomNumber => roomNumber;
-
     private int currentHealth;
+    private int roomNumber;
+
     private Renderer enemyRenderer;
     private Color defaultColor;
+
     private bool isDead;
+    private bool isRegistered;
 
     private void Awake()
     {
@@ -30,6 +29,14 @@ public class EnemyHealth : MonoBehaviour
         {
             defaultColor = enemyRenderer.material.color;
         }
+    }
+
+    public void Initialize(int roomNumberFromManager)
+    {
+        roomNumber = roomNumberFromManager;
+        isRegistered = true;
+
+        Debug.Log(gameObject.name + " зарегистрирован как враг комнаты " + roomNumber);
     }
 
     public void TakeDamage(int damage)
@@ -71,13 +78,9 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        if (GameManager.Instance != null)
+        if (isRegistered && GameManager.Instance != null)
         {
             GameManager.Instance.EnemyKilled(roomNumber);
-        }
-        else
-        {
-            Debug.LogWarning(gameObject.name + " уничтожен, но GameManager не найден.");
         }
 
         Debug.Log(gameObject.name + " уничтожен");

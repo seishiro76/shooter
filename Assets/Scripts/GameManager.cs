@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     [Header("Room 1 Door")]
     [SerializeField] private GameObject room1DoorBlocker;
 
+    [Header("Enemy Groups")]
+    [SerializeField] private Transform room1EnemiesParent;
+    [SerializeField] private Transform room2EnemiesParent;
+
     private int room1EnemiesAlive;
     private int totalEnemiesAlive;
 
@@ -26,27 +30,40 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CountEnemiesOnScene();
+        CountEnemies();
 
         Debug.Log("GameManager запущен");
         Debug.Log("Врагов в первой комнате: " + room1EnemiesAlive);
         Debug.Log("Всего врагов на уровне: " + totalEnemiesAlive);
     }
 
-    private void CountEnemiesOnScene()
+    private void CountEnemies()
     {
-        EnemyHealth[] enemies = FindObjectsByType<EnemyHealth>(FindObjectsSortMode.None);
+        EnemyHealth[] room1Enemies = GetEnemiesFromParent(room1EnemiesParent);
+        EnemyHealth[] room2Enemies = GetEnemiesFromParent(room2EnemiesParent);
 
-        totalEnemiesAlive = enemies.Length;
-        room1EnemiesAlive = 0;
+        room1EnemiesAlive = room1Enemies.Length;
+        totalEnemiesAlive = room1Enemies.Length + room2Enemies.Length;
 
-        foreach (EnemyHealth enemy in enemies)
+        foreach (EnemyHealth enemy in room1Enemies)
         {
-            if (enemy.RoomNumber == 1)
-            {
-                room1EnemiesAlive++;
-            }
+            enemy.Initialize(1);
         }
+
+        foreach (EnemyHealth enemy in room2Enemies)
+        {
+            enemy.Initialize(2);
+        }
+    }
+
+    private EnemyHealth[] GetEnemiesFromParent(Transform parent)
+    {
+        if (parent == null)
+        {
+            return new EnemyHealth[0];
+        }
+
+        return parent.GetComponentsInChildren<EnemyHealth>(false);
     }
 
     public void EnemyKilled(int roomNumber)
