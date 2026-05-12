@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
-
-    [Header("Mouse Look")]
+    [Header("References")]
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private float mouseSensitivity = 2f;
+    [SerializeField] private PlayerInputHandler inputHandler;
 
-    [Header("Jump and Gravity")]
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float gravity = -20f;
+    [SerializeField] private float gravity = -9.81f;
+
+    [Header("Mouse Settings")]
+    [SerializeField] private float mouseSensitivity = 100f;
 
     private CharacterController characterController;
     private Transform cachedTransform;
@@ -24,14 +25,19 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cachedTransform = transform;
 
+        if (inputHandler == null)
+        {
+            inputHandler = GetComponent<PlayerInputHandler>();
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     private void Update()
     {
-        Look();
         MoveAndJump();
+        Look();
     }
 
     private void MoveAndJump()
@@ -43,18 +49,16 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = -2f;
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 moveDirection = cachedTransform.right * horizontalInput +
-                                cachedTransform.forward * verticalInput;
+        Vector3 moveDirection =
+            cachedTransform.right * inputHandler.HorizontalInput +
+            cachedTransform.forward * inputHandler.VerticalInput;
 
         if (moveDirection.magnitude > 1f)
         {
             moveDirection.Normalize();
         }
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && inputHandler.JumpPressed)
         {
             verticalVelocity = jumpForce;
         }
@@ -69,8 +73,8 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float mouseX = inputHandler.MouseX * mouseSensitivity;
+        float mouseY = inputHandler.MouseY * mouseSensitivity;
 
         cachedTransform.Rotate(Vector3.up * mouseX);
 

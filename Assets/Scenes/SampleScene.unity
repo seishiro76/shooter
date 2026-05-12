@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 19602688}
   - component: {fileID: 19602687}
   - component: {fileID: 19602686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3527,7 +3527,7 @@ GameObject:
   - component: {fileID: 130723160}
   - component: {fileID: 130723159}
   - component: {fileID: 130723158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: room_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6708,78 +6708,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1001 &162057999
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 700017429}
-    m_Modifications:
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160416579055624167, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      propertyPath: m_Name
-      value: SciFiGunLight_Dark
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1721270662}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
 --- !u!43 &196677438
 Mesh:
   m_ObjectHideFlags: 0
@@ -6972,7 +6900,7 @@ GameObject:
   - component: {fileID: 209690031}
   - component: {fileID: 209690030}
   - component: {fileID: 209690029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7617,7 +7545,7 @@ GameObject:
   - component: {fileID: 349445466}
   - component: {fileID: 349445465}
   - component: {fileID: 349445464}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: zombie_weak_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7912,6 +7840,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &397177334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+  m_PrefabInstance: {fileID: 1584650397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -8089,7 +8022,7 @@ GameObject:
   - component: {fileID: 413297439}
   - component: {fileID: 413297438}
   - component: {fileID: 413297437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8618,7 +8551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505608115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StartRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8655,7 +8588,7 @@ GameObject:
   - component: {fileID: 528692246}
   - component: {fileID: 528692245}
   - component: {fileID: 528692244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door_Blocker_Room_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,7 +9122,7 @@ GameObject:
   - component: {fileID: 543858194}
   - component: {fileID: 543858193}
   - component: {fileID: 543858192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: medicine_chest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9547,7 +9480,7 @@ GameObject:
   - component: {fileID: 554723100}
   - component: {fileID: 554723099}
   - component: {fileID: 554723101}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: finish_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9927,11 +9860,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &671663565 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9160416579055387591, guid: caf80fbf99570df45a028c3a3c6ff238, type: 3}
-  m_PrefabInstance: {fileID: 162057999}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697437172
 GameObject:
   m_ObjectHideFlags: 0
@@ -9946,7 +9874,7 @@ GameObject:
   - component: {fileID: 697437176}
   - component: {fileID: 697437175}
   - component: {fileID: 697437174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10321,7 +10249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 671663565}
+  - {fileID: 1154225665}
   m_Father: {fileID: 755139908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &700017430
@@ -10441,6 +10369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShooting
   shootDistance: 50
   damage: 25
+  shootMask:
+    serializedVersion: 2
+    m_Bits: 72
   maxAmmo: 30
   currentAmmo: 30
   muzzleFlash: {fileID: 1721270661}
@@ -10492,7 +10423,7 @@ GameObject:
   - component: {fileID: 742031463}
   - component: {fileID: 742031462}
   - component: {fileID: 742031461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: medicine_chest_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10848,6 +10779,7 @@ GameObject:
   - component: {fileID: 755139905}
   - component: {fileID: 755139909}
   - component: {fileID: 755139910}
+  - component: {fileID: 755139911}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10965,11 +10897,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d912988c0fc224db7db837ef20ab2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
   playerCamera: {fileID: 700017429}
-  mouseSensitivity: 2
+  inputHandler: {fileID: 755139911}
+  moveSpeed: 5
   jumpForce: 5
   gravity: -9.8
+  mouseSensitivity: 2
 --- !u!114 &755139910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10983,6 +10916,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
+--- !u!114 &755139911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755139904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddfac812d2687f48977aae3c9d8c5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
 --- !u!43 &763938670
 Mesh:
   m_ObjectHideFlags: 0
@@ -11173,7 +11118,7 @@ GameObject:
   - component: {fileID: 790501971}
   - component: {fileID: 790501970}
   - component: {fileID: 790501969}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FlashSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11982,7 +11927,7 @@ GameObject:
   - component: {fileID: 1053782019}
   - component: {fileID: 1053782018}
   - component: {fileID: 1053782017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: room_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15258,7 +15203,7 @@ GameObject:
   - component: {fileID: 1125433525}
   - component: {fileID: 1125433524}
   - component: {fileID: 1125433523}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: zombie_strong_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15388,7 +15333,7 @@ GameObject:
   - component: {fileID: 1131612183}
   - component: {fileID: 1131612182}
   - component: {fileID: 1131612181}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: zombie_strong_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15683,6 +15628,39 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1154225664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154225665}
+  m_Layer: 0
+  m_Name: WeaponHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154225665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154225664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1721270662}
+  - {fileID: 397177334}
+  m_Father: {fileID: 700017429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1177355798
 GameObject:
   m_ObjectHideFlags: 0
@@ -15697,7 +15675,7 @@ GameObject:
   - component: {fileID: 1177355801}
   - component: {fileID: 1177355800}
   - component: {fileID: 1177355799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: corridor_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18151,7 +18129,7 @@ GameObject:
   - component: {fileID: 1219154752}
   - component: {fileID: 1219154751}
   - component: {fileID: 1219154750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shelter_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18506,7 +18484,7 @@ GameObject:
   - component: {fileID: 1337764947}
   - component: {fileID: 1337764946}
   - component: {fileID: 1337764945}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: zombie_weak_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18815,7 +18793,7 @@ GameObject:
   - component: {fileID: 1391112268}
   - component: {fileID: 1391112267}
   - component: {fileID: 1391112266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19134,7 +19112,7 @@ GameObject:
   - component: {fileID: 1503785112}
   - component: {fileID: 1503785111}
   - component: {fileID: 1503785110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: corridor_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19970,7 +19948,7 @@ GameObject:
   - component: {fileID: 1524518853}
   - component: {fileID: 1524518852}
   - component: {fileID: 1524518851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ammunition_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20424,6 +20402,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554722250}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1584650397
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1154225665}
+    m_Modifications:
+    - target: {fileID: 787057100562914357, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_Name
+      value: SciFiGunLight_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 787057100563398677, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 371711cf542f6d84bafd6596c502935b, type: 3}
 --- !u!43 &1600964982
 Mesh:
   m_ObjectHideFlags: 0
@@ -20760,7 +20807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721270662}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20775,13 +20822,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721270661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.28, y: -0.24999994, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 790501968}
-  m_Father: {fileID: 671663565}
+  m_Father: {fileID: 1154225665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751942910
 GameObject:
@@ -20844,7 +20891,7 @@ GameObject:
   - component: {fileID: 1763368220}
   - component: {fileID: 1763368219}
   - component: {fileID: 1763368218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ammunition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21200,7 +21247,7 @@ GameObject:
   - component: {fileID: 1839678205}
   - component: {fileID: 1839678204}
   - component: {fileID: 1839678203}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: medicine_chest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21556,7 +21603,7 @@ GameObject:
   - component: {fileID: 1930999022}
   - component: {fileID: 1930999021}
   - component: {fileID: 1930999020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ammunition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21912,7 +21959,7 @@ GameObject:
   - component: {fileID: 1948456900}
   - component: {fileID: 1948456899}
   - component: {fileID: 1948456898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Prism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22910,7 +22957,7 @@ GameObject:
   - component: {fileID: 2080089568}
   - component: {fileID: 2080089567}
   - component: {fileID: 2080089566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,6 +7,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float shootDistance = 50f;
     [SerializeField] private int damage = 25;
 
+    [Header("Raycast Settings")]
+    [SerializeField] private LayerMask shootMask;
+
     [Header("Ammo Settings")]
     [SerializeField] private int maxAmmo = 30;
     [SerializeField] private int currentAmmo = 30;
@@ -57,7 +60,7 @@ public class PlayerShooting : MonoBehaviour
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, shootDistance))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, shootDistance, shootMask))
         {
             Debug.Log("Попадание в объект: " + hitInfo.collider.name);
 
