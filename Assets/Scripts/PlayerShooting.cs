@@ -1,32 +1,49 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private PlayerInputHandler inputHandler;
+
     [Header("Shooting Settings")]
     [SerializeField] private float shootDistance = 50f;
     [SerializeField] private int damage = 25;
 
+    [Header("Ammo Settings")]
+    [SerializeField] private int magazineSize = 10;
+    [SerializeField] private int startReserveAmmo = 30;
+    [SerializeField] private int maxReserveAmmo = 50;
+
     [Header("Raycast Settings")]
     [SerializeField] private LayerMask shootMask;
 
-    [Header("Ammo Settings")]
-    [SerializeField] private int maxAmmo = 30;
-    [SerializeField] private int currentAmmo = 30;
-
-    [Header("Visual Effects")]
+    [Header("Muzzle Flash")]
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private float muzzleFlashTime = 0.05f;
 
-    private Camera playerCamera;
+    [Header("Events")]
+    [SerializeField] private UnityEvent<int, int> onAmmoChanged;
+
+    private int magazineAmmo;
+    private int reserveAmmo;
+    private Coroutine muzzleFlashCoroutine;
 
     private void Awake()
     {
-        playerCamera = GetComponent<Camera>();
+        magazineAmmo = magazineSize;
+        reserveAmmo = startReserveAmmo;
 
         if (playerCamera == null)
         {
-            Debug.LogError("PlayerShooting должен быть на объекте с компонентом Camera");
+            playerCamera = GetComponent<Camera>();
+        }
+
+        if (inputHandler == null)
+        {
+            inputHandler = GetComponentInParent<PlayerInputHandler>();
         }
 
         if (muzzleFlash != null)
@@ -35,51 +52,86 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateAmmoUI();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
+
+        if (inputHandler != null && inputHandler.ReloadPressed)
+        {
+            Reload();
+        }
     }
 
     private void Shoot()
     {
-        if (currentAmmo <= 0)
+        if (magazineAmmo <= 0)
         {
-            Debug.Log("Нет патронов");
             return;
         }
 
-        currentAmmo--;
+        magazineAmmo--;
+        UpdateAmmoUI();
 
-        if (muzzleFlash != null)
-        {
-            StartCoroutine(ShowMuzzleFlash());
-        }
+        ShowMuzzleFlash();
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, shootDistance, shootMask))
         {
-            Debug.Log("Попадание в объект: " + hitInfo.collider.name);
-
-            EnemyHealth enemyHealth = hitInfo.collider.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = hitInfo.collider.GetComponentInParent<EnemyHealth>();
 
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
             }
         }
-        else
-        {
-            Debug.Log("Выстрел мимо");
-        }
-
-        Debug.Log("Патроны: " + currentAmmo);
     }
 
-    private IEnumerator ShowMuzzleFlash()
+    private void Reload()
+    {
+        if (magazineAmmo >= magazineSize)
+        {
+            return;
+        }
+
+        if (reserveAmmo <= 0)
+        {
+            return;
+        }
+
+        int neededAmmo = magazineSize - magazineAmmo;
+        int ammoToReload = Mathf.Min(neededAmmo, reserveAmmo);
+
+        magazineAmmo += ammoToReload;
+        reserveAmmo -= ammoToReload;
+
+        UpdateAmmoUI();
+    }
+
+    private void ShowMuzzleFlash()
+    {
+        if (muzzleFlash == null)
+        {
+            return;
+        }
+
+        if (muzzleFlashCoroutine != null)
+        {
+            StopCoroutine(muzzleFlashCoroutine);
+        }
+
+        muzzleFlashCoroutine = StartCoroutine(MuzzleFlashCoroutine());
+    }
+
+    private IEnumerator MuzzleFlashCoroutine()
     {
         muzzleFlash.SetActive(true);
 
@@ -90,18 +142,28 @@ public class PlayerShooting : MonoBehaviour
 
     public void AddAmmo(int amount)
     {
-        currentAmmo += amount;
+        reserveAmmo += amount;
 
-        if (currentAmmo > maxAmmo)
+        if (reserveAmmo > maxReserveAmmo)
         {
-            currentAmmo = maxAmmo;
+            reserveAmmo = maxReserveAmmo;
         }
 
-        Debug.Log("Патроны пополнены: " + currentAmmo);
+        UpdateAmmoUI();
     }
 
-    public int GetCurrentAmmo()
+    private void UpdateAmmoUI()
     {
-        return currentAmmo;
+        onAmmoChanged?.Invoke(magazineAmmo, reserveAmmo);
+    }
+
+    public int GetMagazineAmmo()
+    {
+        return magazineAmmo;
+    }
+
+    public int GetReserveAmmo()
+    {
+        return reserveAmmo;
     }
 }

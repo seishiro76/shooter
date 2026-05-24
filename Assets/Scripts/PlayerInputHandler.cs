@@ -9,6 +9,9 @@ public class PlayerInputHandler : MonoBehaviour
     public float MouseY { get; private set; }
 
     public bool JumpPressed { get; private set; }
+    public bool EscapePressed { get; private set; }
+    public bool InteractPressed { get; private set; }
+    public bool ReloadPressed { get; private set; }
 
     private void Update()
     {
@@ -19,5 +22,8 @@ public class PlayerInputHandler : MonoBehaviour
         MouseY = Input.GetAxis("Mouse Y");
 
         JumpPressed = Input.GetKeyDown(KeyCode.Space);
+        EscapePressed = Input.GetKeyDown(KeyCode.Escape);
+        InteractPressed = Input.GetKeyDown(KeyCode.E);
+        ReloadPressed = Input.GetKeyDown(KeyCode.R);
     }
 }

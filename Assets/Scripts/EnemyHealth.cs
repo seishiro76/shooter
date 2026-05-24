@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public event Action<EnemyHealth> Died;
+
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 50;
 
@@ -11,13 +14,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float hitFlashTime = 0.15f;
 
     private int currentHealth;
-    private int roomNumber;
-
     private Renderer enemyRenderer;
     private Color defaultColor;
-
     private bool isDead;
-    private bool isRegistered;
 
     private void Awake()
     {
@@ -31,14 +30,6 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void Initialize(int roomNumberFromManager)
-    {
-        roomNumber = roomNumberFromManager;
-        isRegistered = true;
-
-        Debug.Log(gameObject.name + " зарегистрирован как враг комнаты " + roomNumber);
-    }
-
     public void TakeDamage(int damage)
     {
         if (isDead)
@@ -47,9 +38,6 @@ public class EnemyHealth : MonoBehaviour
         }
 
         currentHealth -= damage;
-
-        Debug.Log(gameObject.name + " получил урон: " + damage);
-        Debug.Log("Осталось здоровья: " + currentHealth);
 
         if (enemyRenderer != null)
         {
@@ -78,12 +66,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        if (isRegistered && GameManager.Instance != null)
-        {
-            GameManager.Instance.EnemyKilled(roomNumber);
-        }
-
-        Debug.Log(gameObject.name + " уничтожен");
+        Died?.Invoke(this);
 
         Destroy(gameObject);
     }

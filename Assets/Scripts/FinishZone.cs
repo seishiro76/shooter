@@ -4,15 +4,15 @@ public class FinishZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        CheckFinish(other);
+        TryFinish(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        CheckFinish(other);
+        TryFinish(other);
     }
 
-    private void CheckFinish(Collider other)
+    private void TryFinish(Collider other)
     {
         if (!other.CompareTag("Player"))
         {
@@ -21,11 +21,7 @@ public class FinishZone : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.TryFinishLevel();
-        }
-        else
-        {
-            Debug.LogWarning("GameManager не найден. Невозможно проверить завершение уровня.");
+            GameManager.Instance.CompleteLevel();
         }
     }
 }

@@ -1,16 +1,47 @@
 using UnityEngine;
 
-public class PickupItem : MonoBehaviour
+public class PickupItem : MonoBehaviour, IInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private enum PickupType
     {
-        
+        Health,
+        Ammo
     }
 
-    // Update is called once per frame
-    void Update()
+    [Header("Pickup Settings")]
+    [SerializeField] private PickupType pickupType;
+    [SerializeField] private int amount = 25;
+
+    [Header("Interaction Text")]
+    [SerializeField] private string interactionText = "Нажмите E";
+
+    public string GetInteractionText()
     {
-        
+        return interactionText;
+    }
+
+    public void Interact(GameObject player)
+    {
+        if (pickupType == PickupType.Health)
+        {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.Heal(amount);
+                Destroy(gameObject);
+            }
+        }
+
+        if (pickupType == PickupType.Ammo)
+        {
+            PlayerShooting playerShooting = player.GetComponentInChildren<PlayerShooting>();
+
+            if (playerShooting != null)
+            {
+                playerShooting.AddAmmo(amount);
+                Destroy(gameObject);
+            }
+        }
     }
 }

@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 100;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<int, int> onHealthChanged;
 
     private int currentHealth;
     private bool isDead;
@@ -11,6 +15,11 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Start()
+    {
+        onHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int damage)
@@ -22,8 +31,12 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= damage;
 
-        Debug.Log("Игрок получил урон: " + damage);
-        Debug.Log("Здоровье игрока: " + currentHealth);
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
+        onHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -45,15 +58,17 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        Debug.Log("Игрок восстановил здоровье. Текущее здоровье: " + currentHealth);
+        onHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     private void Die()
     {
         isDead = true;
-        currentHealth = 0;
 
-        Debug.Log("Игрок погиб");
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.PlayerDied();
+        }
     }
 
     public int GetCurrentHealth()
