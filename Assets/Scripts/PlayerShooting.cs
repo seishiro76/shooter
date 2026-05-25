@@ -74,10 +74,12 @@ public class PlayerShooting : MonoBehaviour
     {
         if (magazineAmmo <= 0)
         {
+            PlaySound(SoundType.EmptyGun);
             return;
         }
 
         magazineAmmo--;
+        PlaySound(SoundType.Shoot);
         UpdateAmmoUI();
 
         ShowMuzzleFlash();
@@ -114,6 +116,7 @@ public class PlayerShooting : MonoBehaviour
         reserveAmmo -= ammoToReload;
 
         UpdateAmmoUI();
+        PlaySound(SoundType.Reload);
     }
 
     private void ShowMuzzleFlash()
@@ -165,5 +168,13 @@ public class PlayerShooting : MonoBehaviour
     public int GetReserveAmmo()
     {
         return reserveAmmo;
+    }
+
+    private void PlaySound(SoundType soundType)
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(soundType);
+        }
     }
 }

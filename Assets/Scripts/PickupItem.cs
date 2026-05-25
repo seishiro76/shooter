@@ -15,6 +15,8 @@ public class PickupItem : MonoBehaviour, IInteractable
     [Header("Interaction Text")]
     [SerializeField] private string interactionText = "Нажмите E";
 
+    private bool isUsed;
+
     public string GetInteractionText()
     {
         return interactionText;
@@ -22,6 +24,13 @@ public class PickupItem : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
+        if (isUsed)
+        {
+            return;
+        }
+
+        bool wasUsed = false;
+
         if (pickupType == PickupType.Health)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
@@ -29,19 +38,32 @@ public class PickupItem : MonoBehaviour, IInteractable
             if (playerHealth != null)
             {
                 playerHealth.Heal(amount);
-                Destroy(gameObject);
+                wasUsed = true;
             }
         }
-
-        if (pickupType == PickupType.Ammo)
+        else if (pickupType == PickupType.Ammo)
         {
             PlayerShooting playerShooting = player.GetComponentInChildren<PlayerShooting>();
 
             if (playerShooting != null)
             {
                 playerShooting.AddAmmo(amount);
-                Destroy(gameObject);
+                wasUsed = true;
             }
         }
+
+        if (!wasUsed)
+        {
+            return;
+        }
+
+        isUsed = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(SoundType.Pickup);
+        }
+
+        Destroy(gameObject);
     }
 }

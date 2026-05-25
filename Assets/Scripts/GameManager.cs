@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
         }
 
         levelCompleted = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(SoundType.LevelComplete);
+        }
+
         onLevelCompleted?.Invoke();
     }
 
@@ -42,6 +48,12 @@ public class GameManager : MonoBehaviour
         }
 
         playerDied = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(SoundType.PlayerDeath);
+        }
+
         onPlayerDied?.Invoke();
     }
 }

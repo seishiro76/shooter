@@ -2,22 +2,21 @@ using UnityEngine;
 
 public class FinishZone : MonoBehaviour
 {
+    private bool isFinished;
+
     private void OnTriggerEnter(Collider other)
     {
-        TryFinish(other);
-    }
+        if (isFinished)
+        {
+            return;
+        }
 
-    private void OnTriggerStay(Collider other)
-    {
-        TryFinish(other);
-    }
-
-    private void TryFinish(Collider other)
-    {
         if (!other.CompareTag("Player"))
         {
             return;
         }
+
+        isFinished = true;
 
         if (GameManager.Instance != null)
         {
