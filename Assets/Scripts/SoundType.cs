@@ -6,5 +6,7 @@ public enum SoundType
     Pickup,
     DoorOpen,
     LevelComplete,
-    PlayerDeath
+    PlayerDeath,
+    EnemyAttack,
+    EnemyDeath
 }

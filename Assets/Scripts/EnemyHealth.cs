@@ -9,6 +9,10 @@ public class EnemyHealth : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 50;
 
+    [Header("Death Settings")]
+    // 0 = уничтожить сразу (как у капсул). Для модели с анимацией смерти поставь ~2-2.5
+    [SerializeField] private float destroyDelay = 0f;
+
     [Header("Hit Feedback")]
     [SerializeField] private Color hitColor = Color.red;
     [SerializeField] private float hitFlashTime = 0.15f;
@@ -66,8 +70,12 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
+        // Сообщаем подписчикам СРАЗУ (EnemyWave досчитает волну и откроет дверь без задержки).
+        // EnemyAI поймает это же событие и запустит анимацию смерти.
         Died?.Invoke(this);
 
-        Destroy(gameObject);
+        // Уничтожаем с задержкой, чтобы анимация смерти успела проиграться.
+        // При destroyDelay = 0 поведение идентично прежнему (мгновенное уничтожение).
+        Destroy(gameObject, destroyDelay);
     }
 }
