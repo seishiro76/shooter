@@ -16442,6 +16442,14 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2066577383418735565, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7cedfa6fd8da27046987516c557821e7, type: 2}
+    - target: {fileID: 2066577383418735565, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4685442728510237453, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: m_Name
       value: Enemy_strong_1
@@ -16490,9 +16498,21 @@ PrefabInstance:
       propertyPath: attackDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackCooldown
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackHitDelay
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6455954322517373652, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455954322517373652, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6455954322517373652, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: avoidancePriority
@@ -19096,6 +19116,14 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2066577383418735565, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7cedfa6fd8da27046987516c557821e7, type: 2}
+    - target: {fileID: 2066577383418735565, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4685442728510237453, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: m_Name
       value: Enemy_strong_2
@@ -19144,9 +19172,17 @@ PrefabInstance:
       propertyPath: attackDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackCooldown
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackHitDelay
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6455954322517373652, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6455954322517373652, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: avoidancePriority
@@ -39944,7 +39980,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137313171}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -39967,7 +40003,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 94932edce45e6a1428ea58442856503f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0bf1c4d65fca7de42b71d781bcee529e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &2138099813
 GameObject:
@@ -40059,6 +40095,22 @@ PrefabInstance:
     - target: {fileID: 5354175203318067639, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: startActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackCooldown
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: attackHitDelay
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971648301043084007, guid: fcc561f9e0093d3458401f3b00b61475, type: 3}
+      propertyPath: detectionRange
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

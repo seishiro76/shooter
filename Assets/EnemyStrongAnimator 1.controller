@@ -105,7 +105,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyAnimator
+  m_Name: EnemyStrongAnimator 1
   serializedVersion: 6
   m_AnimatorParameters:
   - m_Name: Speed
@@ -148,7 +148,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: idle
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7038552117914889865}
@@ -204,7 +204,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_EventTreshold: 0.3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8726492523785416097}
   m_Solo: 0
@@ -233,10 +233,10 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8803828899213080277}
-    m_Position: {x: 450, y: 210, z: 0}
+    m_Position: {x: 450, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3492565377327714082}
-    m_Position: {x: 420, y: 30, z: 0}
+    m_Position: {x: 420, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8726492523785416097}
     m_Position: {x: 260, y: 390, z: 0}
@@ -308,8 +308,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: walk
-  m_Speed: 2
+  m_Name: run
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8131094600563990094}
